@@ -22,6 +22,15 @@ import java.util.Vector;
 public class Planete {
 
     public Map<String, Emplacement>  emplacements = new TreeMap<String, Emplacement>();
+    private Emplacement sortie;
+
+    public Emplacement getSortie() {
+        return sortie;
+    }
+
+    public void setSortie(Emplacement sortie) {
+        this.sortie = sortie;
+    }
 
     /** Vitesse du Htepien en unités de distance / unités de temps (ex: m/s) */
     public double  vitesse = 1.0;

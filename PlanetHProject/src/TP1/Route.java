@@ -26,7 +26,7 @@ public class Route {
 
         if(origineX == destinationX){
             //Mouvement vertical
-            return destinationY > origineY ? ACTION_NORD : ACTION_SUD;
+            return origineY > destinationY ? ACTION_NORD : ACTION_SUD;
         }
         return destinationX > origineX ? ACTION_EST : ACTION_OUEST;
     }

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SimH">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/TP1/SimH.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -3,6 +3,9 @@ package TP1;/* INF4230 - Intelligence artificielle
  * Hiver 2017
  */
 
+import TP1.heuristique.Diagonal;
+import TP1.heuristique.Heuristique;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -23,7 +26,7 @@ public class TP1 {
         
 
         BufferedReader keyboard=new BufferedReader(new InputStreamReader(System.in));
-		String line = "planeteH01.txt";
+		String line = "planeteTest.txt";
 		System.out.println("Donne le nom du fichier contenant ton mondeH.");
                 System.out.println("Remarque: le fichier doit être à la racine du projet et dois se terminer par .txt");
                 System.out.println("Exemple: planeteH01.txt");
@@ -35,7 +38,7 @@ public class TP1 {
         parseur.parse(line);
         parseur.planete.buildNavigationTable();
         // Création de l'objet évaluateur d'heuristique
-        Heuristique h = new Heuristique(parseur.planete);
+        Heuristique h = new Diagonal(parseur.planete);
         
         // Appel à l'algorithme A*
         List<String> plan = AStar.genererPlan(parseur.etatInitial, parseur.but, h);

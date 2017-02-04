@@ -3,16 +3,17 @@ package TP1;/* INF4230 - Intelligence artificielle
  * Hiver 2017
  */
 
-import java.util.Collection;
+import TP1.heuristique.Heuristique;
+
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
-
 
 /**
  * Représente un état dans le monde.
  */
 public class Etat implements Comparable<Etat> {
+
     public static final String ACTION_NORD = "nord",
             ACTION_SUD = "sud",
             ACTION_OUEST = "ouest",
@@ -24,6 +25,9 @@ public class Etat implements Comparable<Etat> {
     // Référence sur le planete (pour accéder aux objets du planete).
     protected Planete planete;
 
+    public Planete getPlanete() {
+        return planete;
+    }
 
     // Noyau de la représentation d'un état. Ici, on met tout ce qui rend l'état unique.
     /**
@@ -71,34 +75,80 @@ public class Etat implements Comparable<Etat> {
         this.planete = planete;
     }
 
+    public Emplacement getEmplacementHtepien() {
+        return emplacementHtepien;
+    }
+
+    public Emplacement getEmplacementBombe(int index) {
+        return emplacementsBombes[index];
+    }
+
+    public Emplacement[] getEmplacementsBombes() {
+        return emplacementsBombes;
+    }
+
     /**
      * Fonction retournant les états successeurs à partir de cet été.
      * Aussi appelé fonction de transition.
      * Cela permet d'explorer l'espace d'état (le graphe de recherche).
      */
-    public Collection<Successeur> genererSuccesseurs() {
+    public LinkedList<Successeur> genererSuccesseurs(Heuristique heuristique, But but) {
         LinkedList<Successeur> successeurs = new LinkedList<Successeur>();
 
-        // À compléter.
-        //
-        // - Pour chaque action possible :
-        List<Route> routePossible = planete.emplacements.get(emplacementHtepien.nom).routes;
+        // Verifier si on est sur la bombe
+        if (getEmplacementBombe(0) == getEmplacementHtepien() && nbbombesCharges == 0) {
+            successeurs.add(new Successeur(clone(), ACTION_CHARGER, 30));
+            return successeurs;
+        }
+
+        // Verifier si on est sur la sortie
+        if (getEmplacementHtepien() == planete.getSortie()) {
+            successeurs.add(new Successeur(clone(), ACTION_DECHARGER, 30));
+            return successeurs;
+        }
+
+        List<Route> routePossible = getPlanete().emplacements.get(getEmplacementHtepien().nom).routes;
         for (Route route : routePossible) {
             String movingAction = route.getAction();
             if (!movingAction.isEmpty()) {
-                successeurs.add(new Successeur(clone(), movingAction, route.obtenirCoutRoute(planete.vitesse)));
+                Etat etatSuccesseurs = clone();
+                etatSuccesseurs.emplacementHtepien = route.destination;
+                Successeur successeur = new Successeur(etatSuccesseurs, movingAction, route.obtenirCoutRoute(planete.vitesse));
+                successeur.etat.g = (g + successeur.cout);
+                successeur.etat.parent = this;
+                successeur.etat.h = heuristique.estimerCoutRestant(successeur.etat, but);
+                successeur.etat.calculerF();
+                successeurs.add(successeur);
             }
         }
+        Collections.sort(successeurs);
+        return successeurs;
+    }
 
-        //--------- CHARGER --------------
-        //--------- DÉCHARGER --------------
-        //   - Instanciez un objet Successeur s;
-        //   - Copiez l'état courant (s.etat = clone()).
-        //   - Créez une chaîne de caractère représentant l'action (s.action).
-        //   - Affectez le coût de cette action (s.cout). N'oubliez pas que les cases magiques diminuent le coût de 2 et les cases du pont et les cases épineuses en rajoutent 2
-        //   - Changez la valeur des variables appropriées dans s.etat.
-        //   - Ajoutez s dans la liste successeurs.
+    public LinkedList<Successeur> genererSuccesseurs() {
+        LinkedList<Successeur> successeurs = new LinkedList<Successeur>();
 
+        // Verifier si on est sur la bombe
+        if (getEmplacementBombe(0) == getEmplacementHtepien() && nbbombesCharges == 0) {
+            successeurs.add(new Successeur(clone(), ACTION_CHARGER, 30));
+            return successeurs;
+        }
+
+        // Verifier si on est sur la sortie
+        if (getEmplacementHtepien() == planete.getSortie()) {
+            successeurs.add(new Successeur(clone(), ACTION_DECHARGER, 30));
+            return successeurs;
+        }
+
+        List<Route> routePossible = getPlanete().emplacements.get(getEmplacementHtepien().nom).routes;
+        for (Route route : routePossible) {
+            String movingAction = route.getAction();
+            if (!movingAction.isEmpty()) {
+                Etat etatSuccesseurs = clone();
+                etatSuccesseurs.emplacementHtepien = route.destination;
+                successeurs.add(new Successeur(etatSuccesseurs, movingAction, route.obtenirCoutRoute(planete.vitesse)));
+            }
+        }
 
         return successeurs;
     }
@@ -147,6 +197,8 @@ public class Etat implements Comparable<Etat> {
         return 0;
     }
 
+
+
     @Override
     public String toString() {
         String s = "ETAT: f=" + f + "  g=" + g + "\n";
@@ -159,4 +211,7 @@ public class Etat implements Comparable<Etat> {
         return s;
     }
 
+    public void calculerF() {
+        f = g + h;
+    }
 }

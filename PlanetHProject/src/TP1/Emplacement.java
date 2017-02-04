@@ -21,6 +21,22 @@ public class Emplacement implements Comparable<Emplacement> {
     protected String nom;
     protected String type;
 
+    public Point2D getPositionGeographique() {
+        return positionGeographique;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public ArrayList<Route> getRoutes() {
+        return routes;
+    }
+
     public int getPenalité() {
         if (type.equals("+")) return -2;
         if (type.equals("-") || type.equals("P")) return 2;
@@ -38,6 +54,7 @@ public class Emplacement implements Comparable<Emplacement> {
      */
     protected int id = nextId++;
     protected static int nextId = 0;
+
 
     @Override
     public int compareTo(Emplacement o) {
