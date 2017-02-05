@@ -13,26 +13,6 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="ParseurH.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/TP1/ParseurH.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="335">
-                    <caret line="97" column="19" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="19" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="PlanetHProject" />
@@ -51,21 +31,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="planHes.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="planHes.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planHes.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Etat.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Etat.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TP1/Etat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="185" column="7" lean-forward="false" selection-start-line="185" selection-start-column="7" selection-end-line="186" selection-end-column="29" />
+            <state relative-caret-position="323">
+              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Etat#0" expanded="false" />
@@ -156,8 +136,8 @@
         <option value="$PROJECT_DIR$/src/TP1/heuristique/Diagonal.java" />
         <option value="$PROJECT_DIR$/src/TP1/TP1.java" />
         <option value="$PROJECT_DIR$/src/TP1/Route.java" />
-        <option value="$PROJECT_DIR$/src/TP1/Etat.java" />
         <option value="$PROJECT_DIR$/src/TP1/AStar.java" />
+        <option value="$PROJECT_DIR$/src/TP1/Etat.java" />
       </list>
     </option>
   </component>
@@ -660,31 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TP1/Etat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="185" column="7" lean-forward="false" selection-start-line="185" selection-start-column="7" selection-end-line="186" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#emplacementHtepien#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#emplacementsBombes#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#bombesCharges#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#nbbombesCharges#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#parent#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#actionFromParent#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#f#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#g#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;field#h#0;class#Etat#0" expanded="false" />
-            <element signature="method#genererSuccesseurs#0;class#Etat#0" expanded="false" />
-            <element signature="method#genererSuccesseurs#1;class#Etat#0" expanded="false" />
-            <element signature="docComment;method#clone#0;class#Etat#0" expanded="false" />
-            <element signature="method#clone#0;class#Etat#0" expanded="false" />
-            <element signature="docComment;method#compareTo#0;class#Etat#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_112/src.zip!/java/util/TreeSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -708,9 +663,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/planHes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TP1/Etat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#emplacementHtepien#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#emplacementsBombes#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#bombesCharges#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#nbbombesCharges#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#actionFromParent#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#f#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#g#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;field#h#0;class#Etat#0" expanded="false" />
+            <element signature="method#genererSuccesseurs#0;class#Etat#0" expanded="false" />
+            <element signature="method#genererSuccesseurs#1;class#Etat#0" expanded="false" />
+            <element signature="docComment;method#clone#0;class#Etat#0" expanded="false" />
+            <element signature="method#clone#0;class#Etat#0" expanded="false" />
+            <element signature="docComment;method#compareTo#0;class#Etat#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

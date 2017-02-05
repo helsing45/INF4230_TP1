@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class Etat implements Comparable<Etat> {
 
-    public static final String ACTION_NORD = "nord",
-            ACTION_SUD = "sud",
-            ACTION_OUEST = "ouest",
-            ACTION_EST = "est",
-            ACTION_CHARGER = "charger",
-            ACTION_DECHARGER = "decharger";
+    public static final String ACTION_NORD = "Nord",
+            ACTION_SUD = "Sud",
+            ACTION_OUEST = "Ouest",
+            ACTION_EST = "Est",
+            ACTION_CHARGER = "Charger",
+            ACTION_DECHARGER = "Decharger";
 
 
     // Référence sur le planete (pour accéder aux objets du planete).
