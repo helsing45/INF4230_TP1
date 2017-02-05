@@ -38,9 +38,9 @@ public class Emplacement implements Comparable<Emplacement> {
     }
 
     public int getPenalité() {
-        if (type.equals("+")) return -2;
+        if (type.equals("+")) return 0;
         if (type.equals("-") || type.equals("P")) return 2;
-        return 0;
+        return 1;
     }
 
     /**
