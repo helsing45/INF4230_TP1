@@ -3,41 +3,48 @@ package TP1;/* INF4230 - Intelligence artificielle
  * Hiver 2017
  */
 
+import java.awt.geom.Point2D;
+
 import static TP1.Etat.*;
 
 public class Route {
 
 
-    public Route(Emplacement origine, Emplacement destination){
+    public Route(Emplacement origine, Emplacement destination) {
         this.origine = origine;
         this.destination = destination;
     }
 
-    public double getLongueur(){
+    public double getLongueur() {
         return origine.positionGeographique.distance(destination.positionGeographique);
     }
 
-    public String getAction(){
-        double origineX = origine.positionGeographique.getX(),
-                origineY = origine.positionGeographique.getY(),
-                destinationX = destination.positionGeographique.getX(),
-                destinationY = destination.positionGeographique.getY();
-        if(origineX == destinationX && origineY == destinationY) return ""; //Il n'a pas bouger
+    public String getAction() {
+        return getAction(origine.getPositionGeographique(), destination.getPositionGeographique());
+    }
 
-        if(origineX == destinationX){
+    public static String getAction(Point2D origine, Point2D destination) {
+        double origineX = origine.getX(),
+                origineY = origine.getY(),
+                destinationX = destination.getX(),
+                destinationY = destination.getY();
+        if (origineX == destinationX && origineY == destinationY) return ""; //Il n'a pas bouger
+
+        if (origineX == destinationX) {
             //Mouvement vertical
             return origineY > destinationY ? ACTION_NORD : ACTION_SUD;
         }
         return destinationX > origineX ? ACTION_EST : ACTION_OUEST;
+
     }
 
-    public double obtenirCoutRoute(double vitesse){
+    public double obtenirCoutRoute(double vitesse) {
         double coutDeplacementNormal = origine.positionGeographique.distance(destination.positionGeographique) * vitesse;
         return coutDeplacementNormal + destination.getPenalité();
     }
 
-    protected Emplacement  origine;
-    protected Emplacement  destination;
-    
+    protected Emplacement origine;
+    protected Emplacement destination;
+
 
 }

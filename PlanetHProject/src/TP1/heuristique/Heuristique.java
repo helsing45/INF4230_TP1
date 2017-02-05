@@ -5,8 +5,8 @@ package TP1.heuristique;/* INF4230 - Intelligence artificielle
 
 
 
+import TP1.Emplacement;
 import TP1.Etat;
-import TP1.But;
 import TP1.Planete;
 public abstract class Heuristique {
     private Planete planete;
@@ -24,5 +24,5 @@ public abstract class Heuristique {
      * Attention : pour être admissible, cette fonction heuristique ne doit pas
      * surestimer le coût restant.
      */
-    public abstract double estimerCoutRestant(Etat etat, But but);
+    public abstract double estimerCoutRestant(Etat etat, Emplacement but);
 }
