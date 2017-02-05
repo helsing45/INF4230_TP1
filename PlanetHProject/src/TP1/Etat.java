@@ -87,43 +87,10 @@ public class Etat implements Comparable<Etat> {
         return emplacementsBombes;
     }
 
-   /* *//**
-     * Fonction retournant les états successeurs à partir de cet été.
-     * Aussi appelé fonction de transition.
-     * Cela permet d'explorer l'espace d'état (le graphe de recherche).
-     *//*
-    public LinkedList<Successeur> genererSuccesseurs(Heuristique heuristique, But but) {
-        LinkedList<Successeur> successeurs = new LinkedList<Successeur>();
-
-        // Verifier si on est sur la bombe
-        if (getEmplacementBombe(0) == getEmplacementHtepien() && nbbombesCharges == 0) {
-            successeurs.add(new Successeur(clone(), ACTION_CHARGER, 30));
-            return successeurs;
-        }
-
-        // Verifier si on est sur la sortie
-        if (getEmplacementHtepien() == planete.getSortie()) {
-            successeurs.add(new Successeur(clone(), ACTION_DECHARGER, 30));
-            return successeurs;
-        }
-
-        List<Route> routePossible = getPlanete().emplacements.get(getEmplacementHtepien().nom).routes;
-        for (Route route : routePossible) {
-            String movingAction = route.getAction();
-            if (!movingAction.isEmpty()) {
-                Etat etatSuccesseurs = clone();
-                etatSuccesseurs.emplacementHtepien = route.destination;
-                Successeur successeur = new Successeur(etatSuccesseurs, movingAction, route.obtenirCoutRoute(planete.vitesse));
-                successeur.etat.g = (g + successeur.cout);
-                successeur.etat.parent = this;
-                successeur.etat.h = heuristique.estimerCoutRestant(successeur.etat, but);
-                successeur.etat.calculerF();
-                successeurs.add(successeur);
-            }
-        }
-        Collections.sort(successeurs);
-        return successeurs;
-    }*/
+    public void clear() {
+        f = g = h = 0;
+        parent = null;
+    }
 
     public LinkedList<Successeur> genererSuccesseurs(Heuristique heuristique, Emplacement but) {
         LinkedList<Successeur> successeurs = new LinkedList<Successeur>();
